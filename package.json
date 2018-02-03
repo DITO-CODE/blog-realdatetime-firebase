@@ -1,0 +1,30 @@
+{
+  "name": "newsletter",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "draft-js": "^0.10.5",
+    "draftjs-to-html": "^0.8.2",
+    "firebase": "^4.9.0",
+    "html-to-draftjs": "^1.1.2",
+    "immutable": "^3.8.2",
+    "jquery": "^3.3.1",
+    "react": "^16.2.0",
+    "react-dom": "^16.2.0",
+    "react-draft-wysiwyg": "^1.12.7",
+    "react-redux": "^5.0.6",
+    "react-router": "^4.2.0",
+    "react-router-dom": "^4.0.0",
+    "react-scripts": "1.1.0",
+    "react-table": "^6.7.6",
+    "redux": "^3.7.2",
+    "redux-act": "^1.6.0",
+    "redux-loop": "^4.2.4"
+  },
+  "scripts": {
+    "start": "react-scripts start",
+    "build": "react-scripts build",
+    "test": "react-scripts test --env=jsdom",
+    "eject": "react-scripts eject"
+  }
+}
