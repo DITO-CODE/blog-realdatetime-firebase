@@ -94,3 +94,12 @@
 .editor{
     padding-bottom: 20px;
 }
+
+.favoritoContent{
+    font-size: 26px;
+    margin-left: 10px;
+}
+
+.favoritoSelect{
+    color: #ffce1a
+}

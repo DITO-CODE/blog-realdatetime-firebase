@@ -146,6 +146,21 @@ class AdminPanel extends Component {
                                                         </div>
                                                     },
                                                     {
+                                                        Header: "FAVORITO",
+                                                        accessor: "data.favorito",
+                                                        show:true,
+                                                        filterable:false,
+                                                        Cell: props => 
+                                                        <div className="text-center">
+                                                            {
+
+                                                                props.value ? 
+                                                                <span className="glyphicon glyphicon-star favoritoSelect"></span>
+                                                                : <span className="glyphicon glyphicon-star-empty"></span>
+                                                            }
+                                                        </div>
+                                                    },
+                                                    {
                                                         Header: "EDITAR",
                                                         accessor: "",
                                                         show:true,

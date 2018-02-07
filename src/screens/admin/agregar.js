@@ -19,7 +19,9 @@ class ArticuloForm extends Component {
             contador:0,
             advertencia:false,
             disableButton:false,
-            content: 'content'
+            content: 'content',
+            classFavorito: "glyphicon-star-empty",
+            favorito:false
         }
 
     }
@@ -47,7 +49,9 @@ class ArticuloForm extends Component {
                 texto:data.contenido.texto,
                 fchPubli:data.publicacion,
                 classBotones:"col-md-3 col-sm-3 col-xs-3",
-                classBtnCancel :"text-center"
+                classBtnCancel :"text-center",
+                favorito:data.favorito ? data.favorito : false,
+                classFavorito: data.favorito ? "glyphicon-star favoritoSelect" :"glyphicon-star-empty"
             })
 
             this.listenerFirebase(this.props.articulo.id,this.state.contador);
@@ -160,8 +164,6 @@ class ArticuloForm extends Component {
                                         </div>
                                     </div>
                                     <div className="col-md-12 editor">
-                                        
-                                      
                                             <CKEditor 
                                                 value={this.state.texto} 
                                                 onChange={this.updateContent.bind(this)} />
@@ -172,6 +174,25 @@ class ArticuloForm extends Component {
                                                      :null
                                                 :null
                                             }
+                                    </div>
+                                    <div className="col-md-12 editor">
+                                        <div className="form-group">
+                                                <label htmlFor="fchPubli">Favorito:</label>
+                                                <div className="favoritoContent">
+                                                    <span class={`glyphicon ${this.state.classFavorito}`}
+                                                    onClick={(event)=>{
+                                                        if(this.state.favorito){
+                                                            this.setState({favorito:false,classFavorito:"glyphicon-star-empty"})
+                                                        }else{
+                                                            this.setState({favorito:true,classFavorito:"glyphicon-star favoritoSelect"})
+                                                        }
+                                                        
+                                                       
+                                                        
+                                                    }}
+                                                    ></span>
+                                                </div>
+                                        </div>
                                     </div>
                                     <div className="col-md-12">
                                         <div className={`${this.state.classBotones} text-right`}>
@@ -249,7 +270,8 @@ class ArticuloForm extends Component {
                     creacion:{
                         creador: this.props.user.email
                     },
-                    publicacion:this.state.fchPubli
+                    publicacion:this.state.fchPubli,
+                    favorito:this.state.favorito
                         
                 }
             }

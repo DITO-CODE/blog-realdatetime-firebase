@@ -112,6 +112,10 @@ exports.api.push({
         data.creacion.timeStamp = fecha.timeStamp;
         data.publicacionTimeStamp = new Date(data.publicacion).getTime();
 
+        if(data.favorito){
+            data.favorito = data.favorito === "true" ? true: false;
+        }
+
 
         var anio = new Date(data.publicacion).getFullYear();
         firebase.ref('anios').orderByChild("anio").equalTo(anio).once('value',valor => {
@@ -156,6 +160,10 @@ exports.api.push({
         data.creacion.timeStamp = fecha.timeStamp;
 
         data.publicacionTimeStamp = new Date(data.publicacion).getTime();
+
+        if(data.favorito){
+            data.favorito = data.favorito === "true" ? true: false;
+        }
         var updates = {};
 
         updates[`articulos/${id}`]= data;
@@ -198,6 +206,36 @@ exports.api.push({
         var limite = req.body.limite;
         
         firebase.ref('articulos').orderByChild("publicacionTimeStamp").limitToLast(limite).once('value').then((snapshot)=>{
+            if(snapshot.val()){
+
+                var dataReturn = [];
+
+                Object.keys(snapshot.val()).forEach((value)=>{
+                    var datatoAdd = {
+                            id: value,
+                            data : snapshot.val()[value]
+                    }
+
+                    dataReturn.push(datatoAdd)
+                });
+
+
+                res.status(200).send(dataReturn);
+            }else{
+                res.status(404).send("No se encontrarón artículos.");
+            }
+        });
+    }
+});
+
+exports.api.push({
+    "path":"/getLastFavoritos",
+    "post":true,
+    "handler":(req,res)=>{
+
+        var limite = req.body.limite;
+        
+        firebase.ref('articulos').orderByChild("favorito").limitToLast(limite).once('value').then((snapshot)=>{
             if(snapshot.val()){
 
                 var dataReturn = [];
