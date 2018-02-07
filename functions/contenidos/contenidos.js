@@ -190,6 +190,37 @@ exports.api.push({
 });
 
 
+exports.api.push({
+    "path":"/getLastsContenidos",
+    "post":true,
+    "handler":(req,res)=>{
+
+        var limite = req.body.limite;
+        
+        firebase.ref('articulos').orderByChild("publicacionTimeStamp").limitToLast(limite).once('value').then((snapshot)=>{
+            if(snapshot.val()){
+
+                var dataReturn = [];
+
+                Object.keys(snapshot.val()).forEach((value)=>{
+                    var datatoAdd = {
+                            id: value,
+                            data : snapshot.val()[value]
+                    }
+
+                    dataReturn.push(datatoAdd)
+                });
+
+
+                res.status(200).send(dataReturn);
+            }else{
+                res.status(404).send("No se encontrarón artículos.");
+            }
+        });
+    }
+});
+
+
 
 
 function getFecha(){
@@ -213,6 +244,7 @@ function getFecha(){
 
     return fecha;
 }
+
 
 
 function getFin(fecha){

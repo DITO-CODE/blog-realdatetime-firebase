@@ -111,7 +111,7 @@ class AdminPanel extends Component {
                                                     {
                                                         Header: "Id",
                                                         accessor: "id",
-                                                        show:true,
+                                                        show:false,
                                                         filterable:false,
                                                         Cell: props => 
                                                         <div className="text-center">

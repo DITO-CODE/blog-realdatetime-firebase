@@ -1,13 +1,9 @@
 import React,{Component} from 'react';
 import * as firebase from 'firebase';
-import { EditorState, convertToRaw, ContentState } from 'draft-js';
 import {bindActionCreators} from 'redux';
 import {connect} from 'react-redux';
 import {addContenido,delContenido} from '../../reducer/contenidos'
-import { Editor } from 'react-draft-wysiwyg';
-import draftToHtml from 'draftjs-to-html';
-import htmlToDraft from 'html-to-draftjs';
-import 'react-draft-wysiwyg/dist/react-draft-wysiwyg.css';
+import  CKEditor from 'react-ckeditor-wrapper';
 
 class ArticuloForm extends Component {
 
@@ -17,13 +13,13 @@ class ArticuloForm extends Component {
             titulo:"",
             texto:"",
             fchPubli:"",
-            editorState: EditorState.createEmpty(),
             mensajes:{},
             classBotones:"col-md-6 col-sm-3 col-xs-3",
             classBtnCancel :"text-left",
             contador:0,
             advertencia:false,
-            disableButton:false
+            disableButton:false,
+            content: 'content'
         }
 
     }
@@ -39,15 +35,6 @@ class ArticuloForm extends Component {
         }
     }
 
-    onEditorStateChange(editorState){
-        var mensajes = this.state.mensajes;
-        mensajes.texto = null;
-        this.setState({
-          editorState,
-          texto:draftToHtml(convertToRaw(editorState.getCurrentContent())),mensajes
-        });
-    }
-
 
     componentDidMount(){
 
@@ -55,11 +42,8 @@ class ArticuloForm extends Component {
      
         if(this.props.articulo){
             var data = this.props.articulo.data;
-            var contentBlock = htmlToDraft(data.contenido.texto);
-            var contentState = ContentState.createFromBlockArray(contentBlock.contentBlocks);
             this.setState({
                 titulo:data.titulo,
-                editorState : EditorState.createWithContent(contentState),
                 texto:data.contenido.texto,
                 fchPubli:data.publicacion,
                 classBotones:"col-md-3 col-sm-3 col-xs-3",
@@ -87,16 +71,20 @@ class ArticuloForm extends Component {
 
     mergeData(event){
         var data = this.state.newData
-        var contentBlock = htmlToDraft(data.contenido.texto);
-        var contentState = ContentState.createFromBlockArray(contentBlock.contentBlocks);
+     
         this.setState({
             titulo:data.titulo,
-            editorState : EditorState.createWithContent(contentState),
             texto:data.contenido.texto,
             fchPubli:data.publicacion,
             agregado:false,
             advertencia:false
         })
+    }
+
+    updateContent(value) {
+        var mensajes = this.state.mensajes;
+        mensajes.texto = null;
+        this.setState({texto:value,mensajes})
     }
 
     render(){
@@ -171,27 +159,19 @@ class ArticuloForm extends Component {
                                             }
                                         </div>
                                     </div>
-                                    <div className="col-md-12">
-                                        <div className="form-group">
-                                            <label htmlFor="contenido">Contenido:</label>
-                                            <Editor
-                                                editorState={this.state.editorState}
-                                                wrapperClassName="demo-wrapper"
-                                                editorClassName="demo-editor"
-                                                onEditorStateChange={this.onEditorStateChange.bind(this)}
-                                            />
-                                            <textarea className="txtContenidoInput"
-                                            onChange={this.changeTextArea.bind(this)}
-                                            value={this.state.texto}
-                                            />
-                                            {
+                                    <div className="col-md-12 editor">
+                                        
+                                      
+                                            <CKEditor 
+                                                value={this.state.texto} 
+                                                onChange={this.updateContent.bind(this)} />
+                                                 {
                                                 this.state.mensajes ? 
                                                     this.state.mensajes.texto ?
                                                      <p className="errorMsj">{this.state.mensajes.texto}</p> 
                                                      :null
                                                 :null
                                             }
-                                        </div>
                                     </div>
                                     <div className="col-md-12">
                                         <div className={`${this.state.classBotones} text-right`}>
@@ -225,21 +205,6 @@ class ArticuloForm extends Component {
         )
     }
 
-    changeTextArea(event){
-        var mensajes = this.state.mensajes;
-        var value = event.target.value;
-        mensajes.texto = null;
-
-        var contentBlock = htmlToDraft(value);
-        var contentState = ContentState.createFromBlockArray(contentBlock.contentBlocks);
-        this.setState({
-            editorState : EditorState.createWithContent(contentState),
-            texto:value,mensajes
-        })
-
-
-    }
-
     removeAdvertencia(event){
         this.setState({advertencia:null});
     }
@@ -250,6 +215,7 @@ class ArticuloForm extends Component {
 
     guardar(event){
 
+        debugger;
         var values = {}
         var mensajes = this.state.mensajes;
         var valido = true;

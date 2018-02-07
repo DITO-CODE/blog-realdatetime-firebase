@@ -10,6 +10,7 @@
     "immutable": "^3.8.2",
     "jquery": "^3.3.1",
     "react": "^16.2.0",
+    "react-ckeditor-wrapper": "^1.1.2",
     "react-dom": "^16.2.0",
     "react-draft-wysiwyg": "^1.12.7",
     "react-redux": "^5.0.6",

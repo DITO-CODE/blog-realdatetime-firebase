@@ -5,6 +5,12 @@ export const urls= ()=> {
         GETCONTENIDOID: "https://us-central1-proyectosgtec-8de9b.cloudfunctions.net/contenidos/getContenido",
         ADDCONTENIDO:"https://us-central1-proyectosgtec-8de9b.cloudfunctions.net/contenidos/addContenido",
         UPDATECONTENIDO : "https://us-central1-proyectosgtec-8de9b.cloudfunctions.net/contenidos/updateContenido",
-        DELCONTENIDO: "https://us-central1-proyectosgtec-8de9b.cloudfunctions.net/contenidos/delContenido"
+        DELCONTENIDO: "https://us-central1-proyectosgtec-8de9b.cloudfunctions.net/contenidos/delContenido",
+        GETUSUARIOS: "https://us-central1-proyectosgtec-8de9b.cloudfunctions.net/usuarios/getUsuarios",
+        ADDUSUARIO:"https://us-central1-proyectosgtec-8de9b.cloudfunctions.net/usuarios/addUsuario",
+        UPDATEUSUARIO:"https://us-central1-proyectosgtec-8de9b.cloudfunctions.net/usuarios/updateUsuario",
+        GETUSUARIOID:"https://us-central1-proyectosgtec-8de9b.cloudfunctions.net/usuarios/getUsuario",
+        DELUSUARIO:"https://us-central1-proyectosgtec-8de9b.cloudfunctions.net/usuarios/delUsuario"
+        
        }
    }
