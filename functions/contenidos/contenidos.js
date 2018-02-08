@@ -258,6 +258,24 @@ exports.api.push({
     }
 });
 
+exports.api.push({
+    "path":"/getAnios",
+    "post":true,
+    "handler":(req,res)=>{
+
+        firebase.database().ref('anios').orderByChild("anio").once('value',data => {
+            if(data.val()){
+                var anios = this.state.anios;
+                Object.keys(data.val()).forEach((element)=>{
+                    anios.push(data.val()[element].anio); 
+                });
+
+                res.status(200).send(anios);
+            }
+        });
+    }
+});
+
 
 
 
