@@ -12,7 +12,6 @@ const firebaseProps= ()=> {
    
    export default firebaseProps;
    
-   
    /*
    QA
        {

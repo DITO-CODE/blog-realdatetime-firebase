@@ -1,0 +1,105 @@
+
+.backLogin {
+    background: #064f90;
+    height: 100vh;
+}
+
+.formLogin {
+    margin-top: 20%;
+    background: #ffff;
+    padding-bottom: 10px;
+    border-radius: 20px;
+}
+
+.iconoUsuarioLogin{
+    font-size: 80px;
+    margin-top: 10px;
+    margin-bottom: 13px;
+}
+
+.textoTiulo {
+    font-size: 33px;
+    font-weight: bold;
+    color: #ef7a3d;
+}
+
+
+.btnLogin {
+    font-size: 20px;
+}
+
+/*PANEL ADMIN*/
+
+.panelAdmin {
+    margin-top: 3%;
+    background: #ffff;
+    padding-bottom: 10px;
+    border-radius: 20px;
+}
+
+.textoTiuloAdmin {
+    font-size: 20px;
+    font-weight: bold;
+    color: #ef7a3d;
+}
+
+.btnBuscar {
+   border: initial !important;
+    padding: 2px 10px;
+}
+
+.tablaArticulos{
+    margin-top: 10px;
+}
+
+.demo-editor{
+    border: 1px solid;
+}
+
+
+.txtContenidoInput{
+
+    width: 100%;
+    min-height: 200px;
+}
+
+.btnRegresar{
+    position: absolute;
+    margin-top: 2px;
+    font-size: 19px;
+    margin-left: 13px;
+    cursor: pointer;
+    color: #ef7a3d;
+    z-index: 1;
+}
+
+.formAgregar{
+    margin-top: 15px;
+}
+
+.errorMsj{
+    color: #ef7a3d;
+    font-size: 11px;
+    height: 0px;
+}
+
+.alertaContenido{
+    margin-top: 15px;
+}
+
+.advertencia{
+    cursor: pointer;
+}
+
+.editor{
+    padding-bottom: 20px;
+}
+
+.favoritoContent{
+    font-size: 26px;
+    margin-left: 10px;
+}
+
+.favoritoSelect{
+    color: #ffce1a
+}
