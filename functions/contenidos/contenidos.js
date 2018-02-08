@@ -265,12 +265,43 @@ exports.api.push({
 
         firebase.ref('anios').orderByChild("anio").once('value',data => {
             if(data.val()){
-                var anios = this.state.anios;
+                var anios = [];
                 Object.keys(data.val()).forEach((element)=>{
                     anios.push(data.val()[element].anio); 
                 });
 
                 res.status(200).send(anios);
+            }
+        });
+    }
+});
+
+
+exports.api.push({
+    "path":"/getBanners",
+    "post":true,
+    "handler":(req,res)=>{
+
+        var limite = req.body.limite;
+        
+        firebase.ref('banners').limitToLast(limite).once('value').then((snapshot)=>{
+            if(snapshot.val()){
+
+                var dataReturn = [];
+
+                Object.keys(snapshot.val()).forEach((value)=>{
+                    var datatoAdd = {
+                            id: value,
+                            data : snapshot.val()[value]
+                    }
+
+                    dataReturn.push(datatoAdd)
+                });
+
+
+                res.status(200).send(dataReturn);
+            }else{
+                res.status(404).send("No se encontrarón banners.");
             }
         });
     }
