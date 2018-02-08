@@ -1,32 +1,24 @@
-[debug] [2018-02-08T03:06:57.264Z] ----------------------------------------------------------------------
-[debug] [2018-02-08T03:06:57.267Z] Command:       /usr/local/bin/node /usr/local/bin/firebase deploy --only functions:contenido
-[debug] [2018-02-08T03:06:57.268Z] CLI Version:   3.15.4
-[debug] [2018-02-08T03:06:57.268Z] Platform:      darwin
-[debug] [2018-02-08T03:06:57.268Z] Node Version:  v8.9.1
-[debug] [2018-02-08T03:06:57.269Z] Time:          Wed Feb 07 2018 21:06:57 GMT-0600 (CST)
-[debug] [2018-02-08T03:06:57.269Z] ----------------------------------------------------------------------
+[debug] [2018-02-08T03:08:33.865Z] ----------------------------------------------------------------------
+[debug] [2018-02-08T03:08:33.867Z] Command:       /usr/local/bin/node /usr/local/bin/firebase deploy --only functions:contenidos
+[debug] [2018-02-08T03:08:33.867Z] CLI Version:   3.15.4
+[debug] [2018-02-08T03:08:33.867Z] Platform:      darwin
+[debug] [2018-02-08T03:08:33.867Z] Node Version:  v8.9.1
+[debug] [2018-02-08T03:08:33.868Z] Time:          Wed Feb 07 2018 21:08:33 GMT-0600 (CST)
+[debug] [2018-02-08T03:08:33.868Z] ----------------------------------------------------------------------
 [debug] 
-[debug] [2018-02-08T03:06:57.285Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
-[debug] [2018-02-08T03:06:57.286Z] > authorizing via signed-in user
-[debug] [2018-02-08T03:06:57.287Z] > refreshing access token with scopes: ["email","https://www.googleapis.com/auth/cloud-platform","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","openid"]
-[debug] [2018-02-08T03:06:57.288Z] >>> HTTP REQUEST POST https://www.googleapis.com/oauth2/v3/token { refresh_token: '1/_dqLA4RAgC9LPObbDILQK8tkLsgut2r9k7kvtc8XB_g',
-  client_id: '563584335869-fgrhgmd47bqnekij5i8b5pr03ho849e6.apps.googleusercontent.com',
-  client_secret: 'j9iVZfS8kkCEFUPaAeJV0sAi',
-  grant_type: 'refresh_token',
-  scope: 'email https://www.googleapis.com/auth/cloud-platform https://www.googleapis.com/auth/cloudplatformprojects.readonly https://www.googleapis.com/auth/firebase openid' } 
- Wed Feb 07 2018 21:06:57 GMT-0600 (CST)
-[debug] [2018-02-08T03:06:57.512Z] <<< HTTP RESPONSE 200
-[debug] [2018-02-08T03:06:57.543Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/proyectosgtec-8de9b  
- Wed Feb 07 2018 21:06:57 GMT-0600 (CST)
-[debug] [2018-02-08T03:06:58.023Z] <<< HTTP RESPONSE 200
-[debug] [2018-02-08T03:06:58.023Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/proyectosgtec-8de9b/tokens  
- Wed Feb 07 2018 21:06:58 GMT-0600 (CST)
-[debug] [2018-02-08T03:06:58.426Z] <<< HTTP RESPONSE 200
+[debug] [2018-02-08T03:08:33.880Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
+[debug] [2018-02-08T03:08:33.880Z] > authorizing via signed-in user
+[debug] [2018-02-08T03:08:33.882Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/proyectosgtec-8de9b  
+ Wed Feb 07 2018 21:08:33 GMT-0600 (CST)
+[debug] [2018-02-08T03:08:34.273Z] <<< HTTP RESPONSE 200
+[debug] [2018-02-08T03:08:34.275Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/proyectosgtec-8de9b/tokens  
+ Wed Feb 07 2018 21:08:34 GMT-0600 (CST)
+[debug] [2018-02-08T03:08:34.699Z] <<< HTTP RESPONSE 200
 [info] 
 [info] === Deploying to 'proyectosgtec-8de9b'...
 [info] 
 [info] i  deploying functions
-[debug] [2018-02-08T03:06:58.716Z] > [functions] package.json contents: {
+[debug] [2018-02-08T03:08:34.951Z] > [functions] package.json contents: {
   "name": "functions",
   "description": "Cloud Functions for Firebase",
   "scripts": {
@@ -44,145 +36,16 @@
   "private": true
 }
 [info] i  functions: ensuring necessary APIs are enabled...
-[debug] [2018-02-08T03:06:58.718Z] >>> HTTP REQUEST GET https://servicemanagement.googleapis.com/v1/services/cloudfunctions.googleapis.com/projectSettings/proyectosgtec-8de9b?view=CONSUMER_VIEW  
- Wed Feb 07 2018 21:06:58 GMT-0600 (CST)
-[debug] [2018-02-08T03:06:58.718Z] >>> HTTP REQUEST GET https://servicemanagement.googleapis.com/v1/services/runtimeconfig.googleapis.com/projectSettings/proyectosgtec-8de9b?view=CONSUMER_VIEW  
- Wed Feb 07 2018 21:06:58 GMT-0600 (CST)
-[debug] [2018-02-08T03:06:59.156Z] <<< HTTP RESPONSE 200
-[debug] [2018-02-08T03:06:59.195Z] <<< HTTP RESPONSE 200
+[debug] [2018-02-08T03:08:34.952Z] >>> HTTP REQUEST GET https://servicemanagement.googleapis.com/v1/services/cloudfunctions.googleapis.com/projectSettings/proyectosgtec-8de9b?view=CONSUMER_VIEW  
+ Wed Feb 07 2018 21:08:34 GMT-0600 (CST)
+[debug] [2018-02-08T03:08:34.953Z] >>> HTTP REQUEST GET https://servicemanagement.googleapis.com/v1/services/runtimeconfig.googleapis.com/projectSettings/proyectosgtec-8de9b?view=CONSUMER_VIEW  
+ Wed Feb 07 2018 21:08:34 GMT-0600 (CST)
+[debug] [2018-02-08T03:08:35.351Z] <<< HTTP RESPONSE 200
+[debug] [2018-02-08T03:08:35.766Z] <<< HTTP RESPONSE 200
 [info] ✔  functions: all necessary APIs are enabled
-[debug] [2018-02-08T03:06:59.196Z] >>> HTTP REQUEST GET https://appengine.googleapis.com/v1/apps/proyectosgtec-8de9b  
- Wed Feb 07 2018 21:06:59 GMT-0600 (CST)
-[debug] [2018-02-08T03:06:59.197Z] >>> HTTP REQUEST GET https://apikeys.googleapis.com/v1/projects/proyectosgtec-8de9b/apiKeys  
- Wed Feb 07 2018 21:06:59 GMT-0600 (CST)
-[debug] [2018-02-08T03:06:59.502Z] <<< HTTP RESPONSE 200
-[debug] [2018-02-08T03:06:59.634Z] <<< HTTP RESPONSE 200
-[debug] [2018-02-08T03:07:08.577Z] ----------------------------------------------------------------------
-[debug] [2018-02-08T03:07:08.580Z] Command:       /usr/local/bin/node /usr/local/bin/firebase deploy --only functions:contenidos
-[debug] [2018-02-08T03:07:08.581Z] CLI Version:   3.15.4
-[debug] [2018-02-08T03:07:08.581Z] Platform:      darwin
-[debug] [2018-02-08T03:07:08.581Z] Node Version:  v8.9.1
-[debug] [2018-02-08T03:07:08.581Z] Time:          Wed Feb 07 2018 21:07:08 GMT-0600 (CST)
-[debug] [2018-02-08T03:07:08.581Z] ----------------------------------------------------------------------
-[debug] 
-[debug] [2018-02-08T03:07:08.596Z] > command requires scopes: ["email","openid","https://www.googleapis.com/auth/cloudplatformprojects.readonly","https://www.googleapis.com/auth/firebase","https://www.googleapis.com/auth/cloud-platform"]
-[debug] [2018-02-08T03:07:08.597Z] > authorizing via signed-in user
-[debug] [2018-02-08T03:07:08.599Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/projects/proyectosgtec-8de9b  
- Wed Feb 07 2018 21:07:08 GMT-0600 (CST)
-[debug] [2018-02-08T03:07:08.950Z] <<< HTTP RESPONSE 200
-[debug] [2018-02-08T03:07:08.950Z] >>> HTTP REQUEST GET https://admin.firebase.com/v1/database/proyectosgtec-8de9b/tokens  
- Wed Feb 07 2018 21:07:08 GMT-0600 (CST)
-[debug] [2018-02-08T03:07:09.299Z] <<< HTTP RESPONSE 200
-[info] 
-[info] === Deploying to 'proyectosgtec-8de9b'...
-[info] 
-[info] i  deploying functions
-[debug] [2018-02-08T03:07:09.556Z] > [functions] package.json contents: {
-  "name": "functions",
-  "description": "Cloud Functions for Firebase",
-  "scripts": {
-    "serve": "firebase serve --only functions",
-    "shell": "firebase experimental:functions:shell",
-    "start": "npm run shell",
-    "deploy": "firebase deploy --only functions",
-    "logs": "firebase functions:log"
-  },
-  "dependencies": {
-    "express": "^4.16.2",
-    "firebase-admin": "~5.4.2",
-    "firebase-functions": "^0.7.1"
-  },
-  "private": true
-}
-[info] i  functions: ensuring necessary APIs are enabled...
-[debug] [2018-02-08T03:07:09.558Z] >>> HTTP REQUEST GET https://servicemanagement.googleapis.com/v1/services/cloudfunctions.googleapis.com/projectSettings/proyectosgtec-8de9b?view=CONSUMER_VIEW  
- Wed Feb 07 2018 21:07:09 GMT-0600 (CST)
-[debug] [2018-02-08T03:07:09.558Z] >>> HTTP REQUEST GET https://servicemanagement.googleapis.com/v1/services/runtimeconfig.googleapis.com/projectSettings/proyectosgtec-8de9b?view=CONSUMER_VIEW  
- Wed Feb 07 2018 21:07:09 GMT-0600 (CST)
-[debug] [2018-02-08T03:07:09.944Z] <<< HTTP RESPONSE 200
-[debug] [2018-02-08T03:07:09.982Z] <<< HTTP RESPONSE 200
-[info] ✔  functions: all necessary APIs are enabled
-[debug] [2018-02-08T03:07:09.983Z] >>> HTTP REQUEST GET https://appengine.googleapis.com/v1/apps/proyectosgtec-8de9b  
- Wed Feb 07 2018 21:07:09 GMT-0600 (CST)
-[debug] [2018-02-08T03:07:09.984Z] >>> HTTP REQUEST GET https://apikeys.googleapis.com/v1/projects/proyectosgtec-8de9b/apiKeys  
- Wed Feb 07 2018 21:07:09 GMT-0600 (CST)
-[debug] [2018-02-08T03:07:10.219Z] <<< HTTP RESPONSE 200
-[debug] [2018-02-08T03:07:10.312Z] <<< HTTP RESPONSE 200
-[info] i  functions: preparing functions directory for uploading...
-[debug] [2018-02-08T03:07:24.955Z] >>> HTTP REQUEST GET https://runtimeconfig.googleapis.com/v1beta1/projects/proyectosgtec-8de9b/configs  
- Wed Feb 07 2018 21:07:24 GMT-0600 (CST)
-[debug] [2018-02-08T03:07:25.228Z] <<< HTTP RESPONSE 200
-[info] i  functions: packaged functions (65.5 KB) for uploading
-[debug] [2018-02-08T03:07:29.282Z] >>> HTTP REQUEST GET https://www.googleapis.com/storage/v1/b/staging.proyectosgtec-8de9b.appspot.com  
- Wed Feb 07 2018 21:07:29 GMT-0600 (CST)
-[debug] [2018-02-08T03:07:29.529Z] <<< HTTP RESPONSE 200
-[debug] [2018-02-08T03:07:29.530Z] >>> HTTP REQUEST POST https://www.googleapis.com/upload/storage/v1/b/staging.proyectosgtec-8de9b.appspot.com/o?uploadType=media&name=firebase-functions-source ReadStream {
-  _readableState: 
-   ReadableState {
-     objectMode: false,
-     highWaterMark: 65536,
-     buffer: BufferList { head: [Object], tail: [Object], length: 1 },
-     length: 65536,
-     pipes: null,
-     pipesCount: 0,
-     flowing: null,
-     ended: false,
-     endEmitted: false,
-     reading: false,
-     sync: false,
-     needReadable: false,
-     emittedReadable: true,
-     readableListening: false,
-     resumeScheduled: false,
-     destroyed: false,
-     defaultEncoding: 'utf8',
-     awaitDrain: 0,
-     readingMore: false,
-     decoder: null,
-     encoding: null },
-  readable: true,
-  domain: null,
-  _events: { end: [Function] },
-  _eventsCount: 1,
-  _maxListeners: undefined,
-  path: '/var/folders/8b/bzf_4r6127d_drsb0bfy0dxr0000gp/T/firebase-functions-59758KJJC0u8gtwJ6.zip',
-  fd: 18,
-  flags: 'r',
-  mode: 438,
-  start: undefined,
-  end: undefined,
-  autoClose: true,
-  pos: undefined,
-  bytesRead: 65536 } 
- Wed Feb 07 2018 21:07:29 GMT-0600 (CST)
-[debug] [2018-02-08T03:07:30.173Z] <<< HTTP RESPONSE 200
-[info] ✔  functions: functions folder uploaded successfully
-[debug] [2018-02-08T03:07:30.175Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1/projects/proyectosgtec-8de9b/locations/us-central1/functions  
- Wed Feb 07 2018 21:07:30 GMT-0600 (CST)
-[debug] [2018-02-08T03:07:30.748Z] <<< HTTP RESPONSE 200
-[debug] [2018-02-08T03:07:30.750Z] > [functions] filtering triggers to: [
-  "contenidos"
-]
-[info] i  functions: current functions in project: contenidos, usuarios
-[info] i  functions: uploading functions in project: contenidos
-[info] i  functions: updating function contenidos...
-[debug] [2018-02-08T03:07:30.756Z] Trigger is: 
-[debug] [2018-02-08T03:07:30.757Z] >>> HTTP REQUEST PATCH https://cloudfunctions.googleapis.com/v1/projects/proyectosgtec-8de9b/locations/us-central1/functions/contenidos { sourceArchiveUrl: 'gs://staging.proyectosgtec-8de9b.appspot.com/firebase-functions-source',
-  name: 'projects/proyectosgtec-8de9b/locations/us-central1/functions/contenidos',
-  entryPoint: 'contenidos',
-  timeout: undefined,
-  availableMemoryMb: 256,
-  failurePolicy: undefined,
-  labels: { 'deployment-tool': 'cli-firebase' },
-  httpsTrigger: {} } 
- Wed Feb 07 2018 21:07:30 GMT-0600 (CST)
-[debug] [2018-02-08T03:07:31.055Z] <<< HTTP RESPONSE 200
-[debug] [2018-02-08T03:07:31.057Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1/operations/cHJveWVjdG9zZ3RlYy04ZGU5Yi91cy1jZW50cmFsMS9jb250ZW5pZG9zL1JZRGZPNVBIckxF  
- Wed Feb 07 2018 21:07:31 GMT-0600 (CST)
-[debug] [2018-02-08T03:07:31.264Z] <<< HTTP RESPONSE 200
-[debug] [2018-02-08T03:07:33.268Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1/operations/cHJveWVjdG9zZ3RlYy04ZGU5Yi91cy1jZW50cmFsMS9jb250ZW5pZG9zL1JZRGZPNVBIckxF  
- Wed Feb 07 2018 21:07:33 GMT-0600 (CST)
-[debug] [2018-02-08T03:07:33.498Z] <<< HTTP RESPONSE 200
-[debug] [2018-02-08T03:07:35.504Z] >>> HTTP REQUEST GET https://cloudfunctions.googleapis.com/v1/operations/cHJveWVjdG9zZ3RlYy04ZGU5Yi91cy1jZW50cmFsMS9jb250ZW5pZG9zL1JZRGZPNVBIckxF  
- Wed Feb 07 2018 21:07:35 GMT-0600 (CST)
-[debug] [2018-02-08T03:07:35.721Z] <<< HTTP RESPONSE 200
+[debug] [2018-02-08T03:08:35.767Z] >>> HTTP REQUEST GET https://appengine.googleapis.com/v1/apps/proyectosgtec-8de9b  
+ Wed Feb 07 2018 21:08:35 GMT-0600 (CST)
+[debug] [2018-02-08T03:08:35.768Z] >>> HTTP REQUEST GET https://apikeys.googleapis.com/v1/projects/proyectosgtec-8de9b/apiKeys  
+ Wed Feb 07 2018 21:08:35 GMT-0600 (CST)
+[debug] [2018-02-08T03:08:35.966Z] <<< HTTP RESPONSE 200
+[debug] [2018-02-08T03:08:36.084Z] <<< HTTP RESPONSE 200

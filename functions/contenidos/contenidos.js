@@ -263,7 +263,7 @@ exports.api.push({
     "post":true,
     "handler":(req,res)=>{
 
-        firebase.database().ref('anios').orderByChild("anio").once('value',data => {
+        firebase.ref('anios').orderByChild("anio").once('value',data => {
             if(data.val()){
                 var anios = this.state.anios;
                 Object.keys(data.val()).forEach((element)=>{
