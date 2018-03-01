@@ -1,6 +1,6 @@
 import $ from 'jquery';
 import { urls } from '../properties/functionsUrl';
-import {usuarios,usuario,usuarioAdded,usuarioDeleted} from '../reducer/usuarios';
+import {usuarios,usuario,usuarioAdded,usuarioDeleted,usuariosSuscritos} from '../reducer/usuarios';
 
 export default  {
 
@@ -88,6 +88,31 @@ export default  {
                 }
             });
         }).then(usuarioDeleted);
-    }
+    },
+    getUsuariosSuscritos(values){
+        
+         return new Promise((resolve,reject)=>{
+             $.ajax({
+                 url: urls().GETUSUARIOSSUSCRITOS,
+                 type: "POST",
+                 dataType: 'json',
+                 data:  values,
+                 success: function(data,status,req){
+                     resolve(data);
+                 },
+                 error: function(data,status,req){
+                     debugger;
+                     if(data.status === 404){
+                         reject({error:"No se encontrarón usuarios"});
+                     }else{
+                         reject({error:"No se lograron obtener los usuarios"});
+                     }
+                     
+                 }
+             });
+ 
+ 
+         }).then(usuariosSuscritos);
+     }
 
 }

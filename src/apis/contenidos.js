@@ -5,10 +5,16 @@ import {contenidos,contenido,contenidoAdded,contenidoDeleted} from '../reducer/c
 export default  {
 
     getContenidos(values){
+
+        var url = urls().GETCONTENIDOSFCH;
+
+        if(!values){
+            url = urls().GETCONTENIDOS;
+        }
        
         return new Promise((resolve,reject)=>{
             $.ajax({
-                url: urls().GETCONTENIDOSFCH,
+                url: url,
                 type: "POST",
                 dataType: 'json',
                 data:  values,
@@ -37,6 +43,7 @@ export default  {
                 dataType: 'json',
                 data: values,
                 success: function(data,status,req){
+                    debugger;
                     resolve(data);
                 },
                 error: function(data,status,req){
@@ -47,6 +54,7 @@ export default  {
     },
     addContenido(values){
         /*Actualiza y agrega un contenido*/
+        debugger;
         return new Promise((resolve,reject)=>{
 
             var uri = urls().ADDCONTENIDO;

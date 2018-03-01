@@ -13,7 +13,7 @@ exports.api.push({
     "path":"/getUsuarios",
     "post":true,
     "handler":(req,res)=>{
-        
+
         firebase.ref('usuarios').once('value').then((snapshot)=>{
             if(snapshot.val()){
 
@@ -78,9 +78,9 @@ exports.api.push({
             if(valor.val()){
                 res.status(500).send({error:"El usuario ya se encuentra registrado."});
             }else{
-                
+
                 firebase.ref(`usuarios/${key}`).set(data,(err)=>{
-                    
+
                     if(err === null){
                         res.status(200).send({error:false,texto:"Usuario agregado."});
                     }else{
@@ -89,9 +89,9 @@ exports.api.push({
                 });
             }
         });
-       
-        
-            
+
+
+
     }
 });
 
@@ -106,14 +106,14 @@ exports.api.push({
         var fecha = getFecha();
         data.creacion.lastDateModified = fecha.timeStamp;
         data.creacion.timeStamp = Math.abs(data.creacion.timeStamp);
-        
+
         if(data.permisos){
             data.permisos.w = data.permisos.w==="true"? true:false;
             data.permisos.r = data.permisos.r==="true"? true:false;
             data.permisos.d = data.permisos.d==="true"? true:false;
         }
         var updates = {};
-        
+
 
         updates[`usuarios/${id}`]= data;
 
@@ -123,7 +123,7 @@ exports.api.push({
             console.log(error);
             res.status(500).send({error:"Ocurrio un error al guardar el usuario."});
         })
-            
+
     }
 });
 
@@ -145,21 +145,85 @@ exports.api.push({
     }
 });
 
+exports.api.push({
+    "path":"/saveSuscripcion",
+    "post":true,
+    "handler":(req,res)=>{
+        var datosUsuario = {creacion:{},nombre:"",email:""};
+        datosUsuario.nombre = req.body.nombre;
+        datosUsuario.email = req.body.email;
+        console.log(datosUsuario);
+        var key = firebase.ref('usuariosSuscritos').push().key;
+        var fecha = getFecha();
+        datosUsuario.creacion.fecha = fecha.fecha;
+        datosUsuario.creacion.timeStamp = fecha.timeStamp;
+        datosUsuario.creacion.lastDateModified = fecha.timeStamp;
+        datosUsuario.activo =  true;
+        console.log(datosUsuario);
+        firebase.ref('usuariosSuscritos').orderByChild("email").equalTo(`${datosUsuario.email}`).once('value',valor => {
+            if(valor.val()){
+                res.status(200).send({error:true,texto:"El usuario ya se encuentra suscrito."});
+            }else{
+
+                firebase.ref(`usuariosSuscritos/${key}`).set(datosUsuario,(err)=>{
+
+                    if(err === null){
+                        res.status(200).send({error:false,texto:"Usuario suscrito."});
+                    }else{
+                        res.status(500).send({error:"Ocurrio un error al guardar el usuario."});
+                    }
+                });
+            }
+        });
+
+
+
+    }
+});
+
+exports.api.push({
+    "path":"/getUsuariosSuscritos",
+    "post":true,
+    "handler":(req,res)=>{
+
+        firebase.ref('usuariosSuscritos').once('value').then((snapshot)=>{
+            if(snapshot.val()){
+
+                var dataReturn = [];
+
+                Object.keys(snapshot.val()).forEach((value)=>{
+                    var datatoAdd = {
+                            id: value,
+                            data : snapshot.val()[value]
+                    }
+
+                    dataReturn.push(datatoAdd)
+                });
+
+
+                res.status(200).send(dataReturn);
+            }else{
+                res.status(404).send("No se encontrarón usuarios suscritos.");
+            }
+        });
+    }
+});
+
 
 function getFecha(){
     var d = new Date();
     var month = d.getMonth()+1;
     var day = d.getDate();
     var year = d.getFullYear();
-    
+
     if(month < 10){
         month = "0"+month;
     }
-    
+
     if(day < 10){
         day = "0"+day;
     }
- 
+
     var fecha = {
         timeStamp:d.getTime(),
         fecha:day + "/"+month+"/"+year

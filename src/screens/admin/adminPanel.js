@@ -6,6 +6,8 @@ import 'react-table/react-table.css';
 import ReactTable from 'react-table';
 import ArticuloForm from './agregar';
 import AdminUsers from './adminUsuarios';
+import UsuariosSuscritos from './usuariosEnvio';
+import Banners from './banners';
 import {getContenidos} from '../../reducer/contenidos'
 
 
@@ -41,6 +43,14 @@ class AdminPanel extends Component {
             regresar={this.regresar.bind(this)}/>
         }
 
+        if(this.state.banners){
+            return <Banners user={this.props.user} regresar={this.regresar.bind(this)} />
+        }
+
+        if(this.state.suscritos){
+            return <UsuariosSuscritos user={this.props.user} regresar={this.regresar.bind(this)} />
+        }
+
         return (
             <div className="backLogin">
                     <div className="row">
@@ -59,6 +69,18 @@ class AdminPanel extends Component {
                                         onClick={this.usuarios.bind(this)}
                                     >
                                         <span className="glyphicon glyphicon-user"></span> Usuarios
+                                    </button>
+
+                                    <button type="button" className="btn btn-warning btn-sm"
+                                        onClick={this.banners.bind(this)}
+                                    >
+                                        <span className="glyphicon glyphicon-th-large"></span> Banners
+                                    </button>
+
+                                    <button type="button" className="btn btn-warning btn-sm"
+                                        onClick={this.suscritos.bind(this)}
+                                    >
+                                        <span className="glyphicon glyphicon-list-alt"></span> Suscritos
                                     </button>
                                    
                                 </div>
@@ -216,7 +238,6 @@ class AdminPanel extends Component {
     }
 
     buscarContenidos(event){
-        debugger;
         var values = {
             fch:`${this.state.anio}-${this.state.mes}`
         }
@@ -240,7 +261,7 @@ class AdminPanel extends Component {
     }
 
     regresar(event){
-        this.setState({articuloForm:false,articulo:null,usuarios:false},()=>{
+        this.setState({articuloForm:false,articulo:null,usuarios:false,banners:false,suscritos:false},()=>{
             this.loadAnios();
             this.buscarContenidos();
         });
@@ -261,6 +282,14 @@ class AdminPanel extends Component {
 
     usuarios(event){
         this.setState({usuarios:true});
+    }
+
+    banners(event){
+        this.setState({banners:true});
+    }
+
+    suscritos(event){
+        this.setState({suscritos:true})
     }
 }
 

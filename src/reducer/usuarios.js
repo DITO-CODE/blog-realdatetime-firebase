@@ -22,6 +22,12 @@ export const usuarioDeleted = createAction("usuarioDeleted");
 export const failDelUsuario = createAction("failDelUsuario");
 
 
+
+export const getUsuariosSuscritos = createAction("getUsuariosSuscritos");
+export const usuariosSuscritos = createAction("usuariosSuscritos");
+export const failGetUsuariosSuscritos = createAction("failGetUsuariosSuscritos");
+
+
 const INITIAL =Immutable.fromJS({
 	adding:false,
 	added:false,
@@ -94,7 +100,23 @@ const ACTIONS = {
 			},
 		[failDelUsuario]:(data,payload)=>{
 			return data.set("failDelUsuario",payload);
-		}
+		},
+		[getUsuariosSuscritos]: (data,payload)=>{
+			return loop(
+				data,
+				Cmd.run(usuarioApi.getUsuariosSuscritos,{
+					successActionCreator : usuariosSuscritos,
+					failActionCreator: failGetUsuariosSuscritos,
+					args: [payload]
+				})
+				)
+		},
+		[usuariosSuscritos]: (data,payload)=>{
+			return data.set("usuariosSuscritos",payload.payload).set("failGetUsuariosSuscritos",null)
+		},
+		[failGetUsuariosSuscritos]:(data,payload)=>{
+			return data.set("failGetUsuariosSuscritos",payload).set("usuariosSuscritos",null);
+		},
 
 }
 

@@ -4,7 +4,7 @@ const firebaseProps= ()=> {
         authDomain: "proyectosgtec-8de9b.firebaseapp.com",
         databaseURL: "https://proyectosgtec-8de9b.firebaseio.com",
         projectId: "proyectosgtec-8de9b",
-        storageBucket: "",
+        storageBucket: "proyectosgtec-8de9b.appspot.com",
         messagingSenderId: "409956683190"
        }
    }

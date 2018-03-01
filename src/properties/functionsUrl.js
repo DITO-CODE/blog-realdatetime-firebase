@@ -10,7 +10,9 @@ export const urls= ()=> {
         ADDUSUARIO:"https://us-central1-proyectosgtec-8de9b.cloudfunctions.net/usuarios/addUsuario",
         UPDATEUSUARIO:"https://us-central1-proyectosgtec-8de9b.cloudfunctions.net/usuarios/updateUsuario",
         GETUSUARIOID:"https://us-central1-proyectosgtec-8de9b.cloudfunctions.net/usuarios/getUsuario",
-        DELUSUARIO:"https://us-central1-proyectosgtec-8de9b.cloudfunctions.net/usuarios/delUsuario"
-        
+        DELUSUARIO:"https://us-central1-proyectosgtec-8de9b.cloudfunctions.net/usuarios/delUsuario",
+        GETBANNERS:"https://us-central1-proyectosgtec-8de9b.cloudfunctions.net/contenidos/getBanners",
+        GETUSUARIOSSUSCRITOS: "https://us-central1-proyectosgtec-8de9b.cloudfunctions.net/usuarios/getUsuariosSuscritos",
+        SUSCRIPCIONUSUSARIO:"https://us-central1-proyectosgtec-8de9b.cloudfunctions.net/usuarios/saveSuscripcion"
        }
    }

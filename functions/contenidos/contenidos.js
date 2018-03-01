@@ -5,7 +5,6 @@ const admin = require('firebase-admin');
 admin.initializeApp(functions.config().firebase);
 
 /*var firestore = admin.firestore();
-
 var collection = firestore.collection('contenidos');*/
 
 var firebase = admin.database();
@@ -282,9 +281,11 @@ exports.api.push({
     "post":true,
     "handler":(req,res)=>{
 
-        var limite = req.body.limite;
+        var limite = Math.round(req.body.limite);
+
+    
         
-        firebase.ref('banners').limitToLast(limite).once('value').then((snapshot)=>{
+        firebase.ref('banners').limitToLast(3).once('value').then((snapshot)=>{
             if(snapshot.val()){
 
                 var dataReturn = [];
